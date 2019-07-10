@@ -28,7 +28,7 @@ public class SendMail {
         log.info("Sending Email");
 
         List<String> data = new Reader().reader();
-        
+
         if(countOfData < data.size()) {
             MailModel mailModel = new MailModel();
             mailModel.setFrom(DetailMail.MAIL_FROM);
