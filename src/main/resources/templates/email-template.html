@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" xmlns:cid="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
     <head>
         <title>Email</title>
 
@@ -8,9 +8,7 @@
 
         <style>
             .bgimg{
-                background-image: url("https://d31v04zdn5vmni.cloudfront.net/blog/wp-content/uploads/2018/03/ultimate-guide-to-background-images-in-email.png");
-                background-repeat: no-repeat;
-                background-size: auto;
+                background: cornflowerblue;
             }
         </style>
 
@@ -25,7 +23,8 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <h1><p th:text="${detail}" style="color: white"></p></h1>
+                        <h1><i><p th:text="${quote}" style="color: white"></i></p></h1>
+                        <p align="right" th:text="${author}" style="color: white"></p>
                     </td>
                 </tr>
                 <tr>

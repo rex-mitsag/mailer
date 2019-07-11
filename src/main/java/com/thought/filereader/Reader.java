@@ -11,17 +11,20 @@ public class Reader {
     public List<String> reader() {
         File file = new File("src/main/resources/csv/details.csv");
         String line;
-        List<String> records = new ArrayList<>();
+        String commaSplit = ".";
+        List<String> recordsOne = new ArrayList<>();
 
         try(BufferedReader br = new BufferedReader(new FileReader(file.getAbsolutePath()))) {
 
+            //Reading the file line by line
+
             while((line = br.readLine()) != null){
-                String event = line;
-                records.add(event);
+                String[] event = line.split(commaSplit);    //Splitting contents of a line based on regex provided
+                recordsOne.add(event[0]+","+event[1]);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return records;
+        return recordsOne;
     }
 }

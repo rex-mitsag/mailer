@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
 import javax.mail.MessagingException;
 import java.util.HashMap;
 import java.util.List;
@@ -21,20 +22,24 @@ public class SendMail {
     @Autowired
     private EmailService emailService;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+    @Scheduled(cron = "0 0 9 * * ?")
     public void sender() throws MessagingException {
         log.info("Sending Email");
 
         List<String> data = new Reader().reader();
 
         if(countOfData < data.size()) {
+            String dataOne = data.get(countOfData);
+            String[] quoteData = dataOne.split(",");
+
             MailModel mailModel = new MailModel();
             mailModel.setFrom(DetailMail.MAIL_FROM);
             mailModel.setTo(DetailMail.MAIL_TO);
             mailModel.setSubject(DetailMail.MAIL_SUBJECT);
 
             Map<String, Object> model = new HashMap<>();
-            model.put(DetailMail.HTML_DETAIL, data.get(countOfData));
+            model.put(DetailMail.HTML_QUOTE, quoteData[0]);
+            model.put(DetailMail.HTML_AUTHOR, quoteData[1]);
             mailModel.setModel(model);
 
             emailService.sendSimpleMessage(mailModel);
