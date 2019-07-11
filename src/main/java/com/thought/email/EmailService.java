@@ -19,8 +19,7 @@ public class EmailService {
 
     @Autowired
     private SpringTemplateEngine templateEngine;
-
-
+    
     public void sendSimpleMessage(MailModel mailModel) throws MessagingException {
         MimeMessage message = emailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message,
