@@ -22,6 +22,8 @@ public class SendMail {
     @Autowired
     private EmailService emailService;
 
+    //The following method is scheduled to execute at 9 am every day until the file contents get used up.
+
     @Scheduled(cron = "0 0 9 * * ?")
     public void sender() throws MessagingException {
         log.info("Sending Email");
