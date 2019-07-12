@@ -5,4 +5,4 @@
 The project is divided in three parts:
 <li>File Reader</li>
 <li>Email Setup</li>
-<li>HTML Template</li>
+<li>Scheduler</li>
